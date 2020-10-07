@@ -43,10 +43,10 @@ void showfilter(double *filter,int width,int height){
 
 }
 
-int main(int argc, const char * argv[]) {
+int main_dipcpp(int argc, const char * argv[]) {
     int r_width=50,r_height=50;
     
-    IplImage *src =cvLoadImage("/Users/Tony/DIPImage/lena.png", 0);
+    IplImage *src =cvLoadImage("C:\\kSource\\pythonx\\toyimg\\fft\\fftk\\lena.png", 0);
     
     int width=src->width, height=src->height;
     RGB * srcarry=(RGB *)malloc(sizeof(RGB)*width*height);
