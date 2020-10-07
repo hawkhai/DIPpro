@@ -57,11 +57,11 @@ void showTrainData(TrainData* data){
         printf("%9lf           %5d\n",data[i].property,data[i].label);
 
 }
-/*计算beta值*/
+/* 计算beta值 */
 double getBeta(double erro){
     return erro/(1.0-erro);
 }
-/*计算alpha的值*/
+/* 计算alpha的值 */
 double getAlpha(double beta){
     return log(1.0/beta);
 }

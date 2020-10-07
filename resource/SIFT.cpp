@@ -372,14 +372,14 @@ void findCandideat(double *DoG[],double *delta_arry,double *src,SIFT_Feature ** 
                         int o_num=findOrientation(src, width, height, &p_d, delta_arry[l]+theta_position[2],orientation );
                         
                         while(o_num--){
-                            SIFT_Feature *new=createNewSIFTnode();
-                            new->x=p_d.x/sizeRatio;
-                            new->y=p_d.y/sizeRatio;
-                            new->next=NULL;
-                            new->orientation=orientation[o_num]/ANGLEZOOM;
-                            new->scale=delta_arry[l]+theta_position[2];
-                            getDescriptor(src,new->des_vector, width, height, p_d,new->scale,new->orientation);
-                            addSIFTnode(dst,new);
+                            SIFT_Feature *newz=createNewSIFTnode();
+                            newz->x=p_d.x/sizeRatio;
+                            newz->y=p_d.y/sizeRatio;
+                            newz->next=NULL;
+                            newz->orientation=orientation[o_num]/ANGLEZOOM;
+                            newz->scale=delta_arry[l]+theta_position[2];
+                            getDescriptor(src, newz->des_vector, width, height, p_d, newz->scale, newz->orientation);
+                            addSIFTnode(dst, newz);
                         }
                         
                     }
@@ -405,8 +405,8 @@ void SIFT(double *src,SIFT_Feature **dst,int width,int height,int scale_k,int oc
     for(int i=0;i<octave;i++){
         
         double *delta_arry=(double *)malloc(sizeof(double)*scale_k);
-        double** scale=malloc(sizeof(double*)*scale_k);
-        double** dog=malloc(sizeof(double*)*(scale_k-1));
+        double** scale=(double**)malloc(sizeof(double*)*scale_k);
+        double** dog=(double**)malloc(sizeof(double*)*(scale_k-1));
         ScaleSpace(src_temp, scale,delta_arry,realtime_width, realtime_height,delta*(1<<i), scale_k);
         DOG_Scale(scale, dog, realtime_width,realtime_height, scale_k);
         findCandideat(dog,delta_arry,src,dst , realtime_width, realtime_height, scale_k-1,sizeRatio);

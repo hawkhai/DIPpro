@@ -61,7 +61,7 @@ double Robert(double *src,double *dst,double *edgedriction,int width,int height)
         getEdgeAngle(dst_x, dst_y, edgedriction, width, height);
     for(int j=0;j<height;j++)
         for(int i=0;i<width;i++){
-            dst[j*width+i]=abs(dst_x[j*width+i])+abs(dst_y[j*width+i]);
+            dst[j*width+i]=fabs(dst_x[j*width+i])+fabs(dst_y[j*width+i]);
             
         }
     free(dst_x);
@@ -115,7 +115,7 @@ double Sobel(double *src,double *dst,double *edgedriction,int width,int height,i
         getEdgeAngle(dst_x, dst_y, edgedriction, width, height);
     for(int j=0;j<height;j++)
         for(int i=0;i<width;i++){
-            dst[j*width+i]=abs(dst_x[j*width+i])+abs(dst_y[j*width+i]);
+            dst[j*width+i]=fabs(dst_x[j*width+i])+fabs(dst_y[j*width+i]);
         }
     free(dst_x);
     free(dst_y);
@@ -142,7 +142,7 @@ double Scharr(double *src,double *dst,double *edgedriction,int width,int height)
         getEdgeAngle(dst_x, dst_y, edgedriction, width, height);
     for(int j=0;j<height;j++)
         for(int i=0;i<width;i++){
-            dst[j*width+i]=abs(dst_x[j*width+i])+abs(dst_y[j*width+i]);
+            dst[j*width+i]=fabs(dst_x[j*width+i])+fabs(dst_y[j*width+i]);
         }
     free(dst_x);
     free(dst_y);
@@ -173,7 +173,7 @@ double Prewitt(double *src,double *dst,int width,int height){
     RealRelevant(dst_y, dst_y, PrewittMask1, width, height, 3, 1);
     for(int j=0;j<height;j++)
         for(int i=0;i<width;i++){
-            dst[j*width+i]=abs(dst_x[j*width+i])+abs(dst_y[j*width+i]);
+            dst[j*width+i]=fabs(dst_x[j*width+i])+fabs(dst_y[j*width+i]);
         }
     free(dst_x);
     free(dst_y);

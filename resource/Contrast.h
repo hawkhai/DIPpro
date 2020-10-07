@@ -18,7 +18,7 @@
 #include "Contrast.h"
 
 
-unsigned char ContrastTable[MAX_PVALUE];//映射表
+extern unsigned char ContrastTable[MAX_PVALUE];//映射表
 
 void ContrastStretch(double *src,double *dst,int width,int height,int method,double p0,double p1,int p2,int p3);
 

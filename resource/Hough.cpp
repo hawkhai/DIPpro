@@ -29,6 +29,8 @@
 #define POLARSTEP (M_PI/POLARWIDTH)
 #define POLARHEIGHT_ZOOM 1
 
+#define M_PI_2     1.57079632679489661923   // pi/2
+
 void DrawLine(double *image,int width,int height,double theta,int r){
     if(theta==M_PI_2||theta==-M_PI_2){
         for(int j=0;j<height;j++){

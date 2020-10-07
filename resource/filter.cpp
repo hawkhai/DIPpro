@@ -124,7 +124,7 @@ double FrequencyFiltering(double *src,int width,int height,double *dst,int filte
     if(temp_complex==NULL){
         exit(0);
     }
-    ImageFFT(temp, temp_complex,fft_width,fft_height);
+    ImageFFT(temp, fft_width,fft_height, temp_complex);
     if(isgetPower)
         power=getPower(temp_complex,fft_width*fft_height);
     //相乘
