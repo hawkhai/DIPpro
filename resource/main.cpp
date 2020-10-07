@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Image_FFT.h"
 #include "Contrast.h"
 #include "convolution.h"
