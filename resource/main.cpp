@@ -20,8 +20,8 @@
 #include "Resize.h"
 #include "SIFT.h"
 #include "PCA.h"
-#include <cv.h>
-#include <highgui.h>
+#include <opencv\cv.h>
+#include <opencv\highgui.h>
 #include "DataOperation.h"
 
 #define HIGH_FR 1
@@ -46,7 +46,13 @@ void showfilter(double *filter,int width,int height){
 int main_dipcpp(int argc, const char * argv[]) {
     int r_width=50,r_height=50;
     
-    IplImage *src =cvLoadImage("C:\\kSource\\pythonx\\toyimg\\fft\\fftk\\lena.png", 0);
+    IplImage *src = cvLoadImage("C:\\kSource\\pythonx\\toyimg\\fft\\fftk\\lena.png", 0);
+    if (src == nullptr) {
+        src = cvLoadImage("E:\\kSource\\pythonx\\toyimg\\fft\\fftk\\lena.png", 0);
+    }
+    if (src == nullptr) {
+        return -1;
+    }
     
     int width=src->width, height=src->height;
     RGB * srcarry=(RGB *)malloc(sizeof(RGB)*width*height);
